@@ -3,14 +3,15 @@ import { DataSource } from 'typeorm';
 import { User } from './entities/User';
 import { Note } from './entities/Note';
 import { Project } from './entities/Project';
+import config from './config';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
-  host: 'localhost',
-  port: 5432,
-  username: 'postgres',
-  password: 'mysecretpassword',
-  database: 'note_app',
+  host: config.postgresHOST,
+  port: config.postgresPORT,
+  username: config.postgresUSER,
+  password: config.postgresPASSWORD,
+  database: config.postgresDB,
   synchronize: true,
   logging: false,
   entities: [User, Note, Project],
