@@ -62,7 +62,7 @@ async function setupGraphQL() {
 
 async function startServer() {
   httpServer
-    .listen(config.port as number, '0.0.0.0')
+    .listen(config.port as number)
     .on('error', (error) => {
       console.log('Error starting server: ', error);
     })
