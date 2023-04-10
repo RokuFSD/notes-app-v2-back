@@ -42,6 +42,7 @@ async function setupGraphQL() {
     expressMiddleware(server, {
       context: async ({ req }) => {
         // Simply pass an empty email if the request is not authenticated
+        console.log('Antes de if', req.headers.authorization);
         if (!req.headers.authorization) {
           return { email: 'emilianordx@gmail.com' };
         }
@@ -53,6 +54,7 @@ async function setupGraphQL() {
         try {
           return await auth.verifyIdToken(tokenValue);
         } catch (e) {
+          console.log('Error verifying token: ', e);
           throw new Error('Unauthorized');
         }
       },
