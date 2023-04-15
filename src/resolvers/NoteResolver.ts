@@ -6,7 +6,7 @@ import {
   Root,
   FieldResolver,
   Authorized,
-  Ctx,
+  Ctx
 } from 'type-graphql';
 import { NoteService } from '../services/NoteService';
 import { Container, Service } from 'typedi';
@@ -15,7 +15,7 @@ import { ProjectEntity } from '../entities/project.entity';
 import {
   NoteEntity,
   NoteInput,
-  NoteMutationReturn,
+  NoteMutationReturn
 } from '../entities/note.entity';
 import { DecodedIdToken } from 'firebase-admin/lib/auth';
 
@@ -53,7 +53,7 @@ export class NoteResolver {
       title,
       content,
       projectId,
-      userEmail: ctx.email,
+      userEmail: ctx.email
     });
   }
 }

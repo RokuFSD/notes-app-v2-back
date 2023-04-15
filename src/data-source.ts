@@ -7,7 +7,7 @@ import config from './config';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
-  url: config.postgresHOST,
+  host: config.postgresHOST,
   port: config.postgresPORT,
   username: config.postgresUSER,
   password: config.postgresPASSWORD,
@@ -16,7 +16,7 @@ export const AppDataSource = new DataSource({
   logging: false,
   entities: [User, Note, Project],
   migrations: [],
-  subscribers: [],
+  subscribers: []
 });
 
 export async function initialize() {

@@ -18,19 +18,19 @@ export class NoteService {
   }
 
   async create({
-    id,
-    title,
-    content,
-    projectId,
-    userEmail,
-  }: NoteInput & { userEmail: string }) {
+                 id,
+                 title,
+                 content,
+                 projectId,
+                 userEmail
+               }: NoteInput & { userEmail: string }) {
     // Retrieve Project
     const project = await this.projectRepository.findOne({
-      where: { id: projectId },
+      where: { id: projectId }
     });
     const user = await this.userRepository.findOne({
       // Temp fixed email for testing
-      where: { email: 'emilianordx@gmail.com' },
+      where: { email: 'emilianordx@gmail.com' }
     });
     if (!project) throw new Error('Project not found!');
     if (!user) throw new Error('User not found!');
@@ -48,7 +48,7 @@ export class NoteService {
   async getProject(noteId: Note['id']) {
     const note = await this.noteRepository.findOne({
       where: { id: noteId },
-      relations: { project: true },
+      relations: { project: true }
     });
     return note.project;
   }
@@ -56,7 +56,7 @@ export class NoteService {
   async getUser(noteId: Note['id']) {
     const note = await this.noteRepository.findOne({
       where: { id: noteId },
-      relations: { user: true },
+      relations: { user: true }
     });
     return note.user;
   }
