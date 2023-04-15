@@ -5,7 +5,7 @@ admin.initializeApp({
   credential: admin.credential.cert({
     projectId: config.projectID,
     clientEmail: config.clientEmail,
-    privateKey: config.privateKey
+    privateKey: config.privateKey.replace(/\\n/g, '\n')
   })
 });
 
